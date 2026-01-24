@@ -8,7 +8,7 @@ on:
       action:
         description: "Choose action"
         required: true
-        default: "apply"
+        default: "plan"
         type: choice
         options:
           - plan
@@ -19,17 +19,11 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: Terraform-Azure
-
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
 
     steps:
       - name: Checkout repo
@@ -37,8 +31,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with:
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Init
         run: terraform init
@@ -51,8 +43,6 @@ jobs:
         if: github.event.inputs.action == 'apply'
         run: terraform apply -auto-approve
 
-      #- name: Terraform Destroy
+     # - name: Terraform Destroy
        # if: github.event.inputs.action == 'destroy'
-       # run: terraform destroy -auto-approve
-
-       
+        #run: terraform destroy -auto-approve
