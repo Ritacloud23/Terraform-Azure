@@ -16,10 +16,6 @@ variable "location" {
   default     = "eastus"
 }
 
-variable "resource_group_name" {
-  description = "Azure resource group name"
-  type        = string
-}
 variable "kubernetes_version" {
   description = "AKS Kubernetes version"
   type        = string
@@ -31,3 +27,4 @@ variable "aks_name" {
   type        = string
   default     = "dev-aks"
 }
+
