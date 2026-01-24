@@ -45,11 +45,12 @@ jobs:
 
       - name: Terraform Plan
         if: github.event.inputs.action == 'plan' || github.event_name == 'push'
-        run: terraform plan
+        run: terraform plan -var="resource_group_name=rg-dev-aks"
 
       - name: Terraform Apply
         if: github.event.inputs.action == 'apply'
-        run: terraform apply -auto-approve
+        run: terraform apply -var="resource_group_name=rg-dev-aks" -auto-approve
+
 
       #- name: Terraform Destroy
        # if: github.event.inputs.action == 'destroy'
