@@ -3,3 +3,4 @@ locals {
   eks_name    = "aks-cluster"
   eks_version = "1.27"
 }
+
