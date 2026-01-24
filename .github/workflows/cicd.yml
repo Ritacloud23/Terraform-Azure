@@ -26,10 +26,6 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: Terraform-Azure   # 👈 THIS IS THE FIX
 
     steps:
       - name: Checkout repo
