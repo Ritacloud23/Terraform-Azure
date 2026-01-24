@@ -5,3 +5,4 @@ locals {
   eks_name    = "dev-cluster"
   eks_version = "1.27"
 }
+
