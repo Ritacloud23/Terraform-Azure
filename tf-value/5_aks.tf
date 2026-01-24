@@ -21,7 +21,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   vm_size              = "Standard_D2_v2"
   node_count           = 1
   type                 = "VirtualMachineScaleSets"
-  vnet_subnet_id       = azurerm_subnet.example.id
+  vnet_subnet_id = azurerm_subnet.subnet1.id
   orchestrator_version = local.eks_version
 
   node_labels = {
