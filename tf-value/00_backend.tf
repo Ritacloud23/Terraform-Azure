@@ -1,9 +1,3 @@
 terraform {
-  cloud {
-    organization = "RitaIT"
-
-    workspaces {
-      name = "Terraform-Azure"
-    }
-  }
+  required_version = ">= 1.5.0"
 }
