@@ -3,11 +3,10 @@ name: Terraform AKS Deployment (Azure)
 on:
   push:
     branches: ["main"]
-
   workflow_dispatch:
     inputs:
       action:
-        description: "Choose Terraform action"
+        description: "Choose action"
         required: true
         default: "apply"
         type: choice
@@ -19,6 +18,11 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: Terraform-Azure
 
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -40,13 +44,13 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        if: github.event_name == 'push' || github.event.inputs.action == 'plan'
+        if: github.event.inputs.action == 'plan' || github.event_name == 'push'
         run: terraform plan
 
       - name: Terraform Apply
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'
+        if: github.event.inputs.action == 'apply'
         run: terraform apply -auto-approve
 
-      #- name: Terraform Destroy
-       # if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'destroy'
+     # - name: Terraform Destroy
+       # if: github.event.inputs.action == 'destroy'
        # run: terraform destroy -auto-approve
