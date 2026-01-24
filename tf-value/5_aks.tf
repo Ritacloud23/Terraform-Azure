@@ -46,10 +46,3 @@ resource "azurerm_kubernetes_cluster" "this" {
   private_cluster_enabled  = false
   node_resource_group      = "${azurerm_resource_group.this.name}-${local.env}-${local.eks_name}"
 }
-
-
-
-
-
-
-
