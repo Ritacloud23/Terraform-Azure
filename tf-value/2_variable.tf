@@ -14,12 +14,6 @@ variable "resource_group_name" {
   description = "Azure resource group name"
   type        = string
 }
-
-variable "aks_name" {
-  description = "AKS cluster name"
-  type        = string
-}
-
 variable "kubernetes_version" {
   description = "AKS Kubernetes version"
   type        = string
