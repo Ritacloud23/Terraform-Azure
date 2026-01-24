@@ -25,6 +25,11 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
+    defaults:
+      run:
+        shell: bash
+        working-directory: tf-value   # ✅ REQUIRED (your .tf files live here)
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -43,6 +48,6 @@ jobs:
         if: github.event.inputs.action == 'apply'
         run: terraform apply -auto-approve
 
-     # - name: Terraform Destroy
+      #- name: Terraform Destroy
        # if: github.event.inputs.action == 'destroy'
-        #run: terraform destroy -auto-approve
+       # run: terraform destroy -auto-approve
