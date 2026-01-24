@@ -47,9 +47,6 @@ resource "azurerm_kubernetes_cluster" "this" {
   node_resource_group      = "${azurerm_resource_group.this.name}-${local.env}-${local.eks_name}"
 }
 
-locals {
-  env = "dev"
-}
 
 
 
