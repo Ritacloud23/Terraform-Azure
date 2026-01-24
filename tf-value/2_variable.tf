@@ -25,3 +25,9 @@ variable "kubernetes_version" {
   type        = string
   default     = "1.27"
 }
+
+variable "aks_name" {
+  description = "AKS cluster name"
+  type        = string
+  default     = "dev-aks"
+}
