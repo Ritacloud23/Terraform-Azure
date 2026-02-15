@@ -1,10 +1,10 @@
-Production-Ready AKS Infrastructure with Terraform & CI/CD
+## Production-Ready AKS Infrastructure with Terraform & CI/CD
 
 This repository provisions a production-grade Azure Kubernetes Service (AKS) cluster using Terraform, with security-first design and GitHub Actions CI/CD integration.
 
 The infrastructure is fully defined as code and executed through a controlled pipeline — no manual Terraform runs.
 
-🏗️ Architecture Overview
+## Architecture Overview
 
 The infrastructure includes:
 
@@ -26,7 +26,7 @@ Remote State Backend (HCP Terraform)
 
 GitHub Actions CI/CD Pipeline
 
-🔐 Security Design
+## Security Design
 
 This setup intentionally follows production-oriented practices:
 
@@ -44,7 +44,7 @@ This setup intentionally follows production-oriented practices:
 
 Infrastructure does not depend on local machines.
 
-⚙️ CI/CD Workflow (GitHub Actions)
+## CI/CD Workflow (GitHub Actions)
 
 Every push to main triggers:
 
@@ -111,7 +111,7 @@ Explicit DNS service IP
 
 Managed identity attached to cluster
 
-🔄 Remote Backend (HCP Terraform)
+ ## Remote Backend (HCP Terraform)
 
 Remote state is stored securely using:
 
@@ -154,7 +154,7 @@ TLS automation
 
 Observability stack (Prometheus + Grafana)
 
- Key Takeaway
+ ## Key Takeaway
 
 CI/CD is not about speed.
 
